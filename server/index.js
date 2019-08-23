@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
+const products = require('../products.json');
 
-app.listen(2020, () => {
-    console.log("Listening on port 2020");
-})
+const port = 2020;
+
+app.get('/api/products', (req, res,) => {
+    res.status(200).send(products);
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port: ${port}`);
+});
